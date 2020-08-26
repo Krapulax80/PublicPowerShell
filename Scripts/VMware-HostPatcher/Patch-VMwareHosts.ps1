@@ -14,7 +14,7 @@ function Patch-VMwareHosts {
  
   .NOTES
     Version:        0.1
-    Author:         Fabrice Semti
+    Author:         Mike Ward & Fabrice Semti
     Creation Date:  26/08/2020
     Purpose/Change: Initial function development
   .EXAMPLE

@@ -14,7 +14,7 @@ function Patch-SIMPLIVITYHosts {
    
     .NOTES
       Version:        0.1
-      Author:         Fabrice Semti
+      Author:         Mike Ward & Fabrice Semti
       Creation Date:  26/08/2020
       Purpose/Change: Initial function development
     .EXAMPLE
@@ -114,7 +114,7 @@ function Patch-SIMPLIVITYHosts {
                     }
                 }
             }
-            
+
             write-host "Re-enabling HA on the $clustername cluster"
             set-cluster -cluster $clustername -HAEnabled:$true -Confirm:$false
         }
