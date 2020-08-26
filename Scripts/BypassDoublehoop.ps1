@@ -1,30 +1,28 @@
 <#
+.Synopsis
+   Function to overcome the "double-hop" with a tempoary CredSSP delegation
 
-DESCRIPTION
+.DESCRIPTION
+    The script is to address the "infamous" double hop (https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ps-remoting-second-hop?view=powershell-7) problem.
+    As the link contains the description and pottential solutions, read it, if you need details.
 
-The script is to address the "infamous" double hop (https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ps-remoting-second-hop?view=powershell-7) problem.
-As the link contains the description and pottential solutions, read it, if you need details.
+    What I try to achieve here is to make the solution into a reusable solution. It also addresses a local problem I have (where our domain admin accounts does not have proxy access) 
+    which might not be neccesary for everyone, therefore this is only turned on using a switch.
+    The script makes possible to connect from serverA to serverB and execute a command on serverB targeting serverC, by creating a temporary CredSSP client/server relationship between
+    serverA and ServerB allowing ServerB to pass credential from serverA to ServerC (thus making the command execution possible)
+    To cater maximum security (or as much as possible with CredSSP):
+    - the CredSSP delegation is removed from both client and server(s) at the end of the process
+    - the CredSSP delegation is only betweeen ServerA and the server(s) listed in the $ComputerNames parameter
+    F.S.
 
-What I try to achieve here is to make the solution into a reusable solution. It also addresses a local problem I have (where our domain admin accounts does not have proxy access) 
-which might not be neccesary for everyone, therefore this is only turned on using a switch.
-The script makes possible to connect from serverA to serverB and execute a command on serverB targeting serverC, by creating a temporary CredSSP client/server relationship between
-serverA and ServerB allowing ServerB to pass credential from serverA to ServerC (thus making the command execution possible)
-To cater maximum security (or as much as possible with CredSSP):
-- the CredSSP delegation is removed from both client and server(s) at the end of the process
-- the CredSSP delegation is only betweeen ServerA and the server(s) listed in the $ComputerNames parameter
-F.S.
+.EXAMPLE
+    ## Using with account that does not have proxy address directly to the target servers
 
-USAGE EXAMPLES
-
-$computers = @('BNWTESTRDWEB001.westcoast.co.uk','BNWTESTRDSH001.westcoast.co.uk','BNWTESTRDSH002.westcoast.co.uk')
-
-## Using with account that does not have proxy address directly to the target servers
-
+    $credential = (Get-Credential)
+    $computers = @('BNWTESTRDWEB001.westcoast.co.uk','BNWTESTRDSH001.westcoast.co.uk','BNWTESTRDSH002.westcoast.co.uk')
     $computers | Bypass-Doublehoop -credential $credential -bypassProxy -command "Get-ChildItem -Path '\\BNWTESTRDCB001.contoso.com\c$'"
+   
 
-## Using with account that has proxy access
-
-    $computers | Bypass-Doublehoop -command "Get-ChildItem -Path '\\BNWTESTRDCB001.contoso.com\c$'"
 #>
 
 function Bypass-Doublehoop {
