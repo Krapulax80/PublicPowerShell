@@ -27,13 +27,13 @@ function Patch-SIMPLIVITYHosts {
 
       Patch-SIMPLIVITYHosts -Live:$True
 
-      # if "-Live:$true" is  not set, the script will use the contents of the clusterlist.txt file; this is for test purposes
+      # if "-Live" is  not set, the script will use the contents of the clusterlist.txt file; this is for test purposes
 
    
   #>    
       [CmdletBinding()]
       param (
-        [Parameter(Mandatory = $false)][Bool]$Live       
+        [Parameter(Mandatory = $false)][switch]$Live       
       )
       
       begin {

@@ -27,12 +27,12 @@ function Patch-VMwareHosts {
 
     Patch-VMwareHosts -Live:$True
 
-    # if "-Live:$true" is  not set, the script will use the contents of the hostlist.txt file; this is for test purposes
+    # if "-Live" is  not set, the script will use the contents of the hostlist.txt file; this is for test purposes
  
 #>    
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $false)][Bool]$Live          
+        [Parameter(Mandatory = $false)][switch]$Live          
     )
     
     begin {
