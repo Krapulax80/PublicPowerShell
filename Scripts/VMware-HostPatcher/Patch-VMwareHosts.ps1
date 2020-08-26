@@ -22,11 +22,17 @@ function Patch-VMwareHosts {
     . "\\tsclient\C\Users\fabrice.semti\OneDrive - Westcoast Limited\Desktop\PublicPowerShell\Scripts\VMware-HostPatcher\Patch-VMwareHosts.ps1"
 
     Patch-VMwareHosts
+
+    or
+
+    Patch-VMwareHosts -Live:$True
+
+    # if "-Live:$true" is  not set, the script will use the contents of the hostlist.txt file; this is for test purposes
  
 #>    
     [CmdletBinding()]
     param (
-          
+        [Parameter(Mandatory = $false)][Bool]$Live          
     )
     
     begin {
@@ -39,14 +45,18 @@ function Patch-VMwareHosts {
         # Import config file        
         $config = Import-Csv "$currentPath/config/config.csv"
 
-        # List of hosts
-        $listofhosts = Get-Content  "$currentPath/config/hostlist.txt"
-
         # List of VM-s to leave online
-        $listofhosts = Get-Content  "$currentPath/config/VMexceptions.txt"   
+        $vmstoleave = Get-Content "$currentPath/config/VMexceptions.txt"  
         
         # Connect to the VI server
         connect-viserver $config.VIserver
+
+        # Host list
+          if ($Live){
+            $listofhosts = (get-datacenter | Where-Object {($_.Name -ne "BNW") -and ($_.Name -ne "ALW")}  | Get-VMHost).Name  # the filter is to exclude the clusterized hosts; this is for standalone hosts only
+          }else {
+            $listofhosts = Get-Content  "$currentPath/config/hostlist.txt"
+          }          
           
     }
     

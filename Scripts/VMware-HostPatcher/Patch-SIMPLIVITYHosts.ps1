@@ -21,12 +21,19 @@ function Patch-SIMPLIVITYHosts {
   
       . "\\tsclient\C\Users\fabrice.semti\OneDrive - Westcoast Limited\Desktop\PublicPowerShell\Scripts\VMware-HostPatcher\Patch-SIMPLIVITYHosts.ps1"
   
-      Patch-SIMPLIVITYHosts
+      Patch-SIMPLIVITYHosts 
+
+      or
+
+      Patch-SIMPLIVITYHosts -Live:$True
+
+      # if "-Live:$true" is  not set, the script will use the contents of the clusterlist.txt file; this is for test purposes
+
    
   #>    
       [CmdletBinding()]
       param (
-            
+        [Parameter(Mandatory = $false)][Bool]$Live       
       )
       
       begin {
@@ -49,15 +56,19 @@ function Patch-SIMPLIVITYHosts {
           connect-viserver $config.VIserver
 
           # Cluster list
-          $clusterlist  = Get-Content "$currentPath/config/clusters.txt" 
-            
+          if ($Live){
+            $listofclusters = (get-cluster).Name # cluster names to work with
+          }else {
+            $listofclusters  = Get-Content "$currentPath/config/clusterlist.txt" 
+          }  
+
       }
       
       process {
         
         #Let's process each cluster at a time
         write-host "Let's start to remediate our Simplivity clusters"
-        Foreach ($clustername in $clusterlist){
+        Foreach ($clustername in $listofclusters){
 
             #Get list of hosts in specified cluster
             $clusterhosts=get-cluster -name $clustername |Get-VMHost
