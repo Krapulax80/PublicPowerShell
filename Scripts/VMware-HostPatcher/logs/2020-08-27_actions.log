@@ -1,0 +1,1374 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20200827232049
+Username: WESTCOASTLTD\WCAdmin.MW
+RunAs User: WESTCOASTLTD\WCAdmin.MW
+Machine: BNWINFRATS01 (Microsoft Windows NT 6.3.9600.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell_ise.exe C:\Scripts\VMWare\VMware-HostPatcher\Patch-VMwareHosts.ps1
+Process ID: 5932
+PSVersion: 5.1.14409.1018
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14409.1018
+BuildVersion: 10.0.14409.1018
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Scripts\VMWare\VMware-HostPatcher\logs\2020-08-27_actions.log
+
+Name                           Port  User
+----                           ----  ----
+bnwvcsa01.westcoast.co.uk      443   WESTCOASTLTD\WCAdmin.MW
+
+DefaultVIServerMode         : Single
+ProxyPolicy                 : UseSystemProxy
+ParticipateInCEIP           : False
+CEIPDataTransferProxyPolicy : UseSystemProxy
+DisplayDeprecationWarnings  : True
+InvalidCertificateAction    : Ignore
+WebOperationTimeoutSeconds  : 3600
+VMConsoleWindowBrowser      :
+Scope                       : Session
+
+
+DefaultVIServerMode         : Single
+ProxyPolicy                 :
+ParticipateInCEIP           : False
+CEIPDataTransferProxyPolicy :
+DisplayDeprecationWarnings  :
+InvalidCertificateAction    : Ignore
+WebOperationTimeoutSeconds  :
+VMConsoleWindowBrowser      :
+Scope                       : User
+
+
+DefaultVIServerMode         :
+ProxyPolicy                 :
+ParticipateInCEIP           : False
+CEIPDataTransferProxyPolicy :
+DisplayDeprecationWarnings  :
+InvalidCertificateAction    : Ignore
+WebOperationTimeoutSeconds  : 3600
+VMConsoleWindowBrowser      :
+Scope                       : AllUsers
+
+Processing anwesx01.westcoast.co.uk
+====================================================================
+WARNING: There were one or more problems with the Update Manager Server certificate:
+
+* The X509 chain could not be built up to the root certificate.
+anwesx01.westcoast.co.uk has some remediation work to do, shutting down VMs and placing host into maintenance mode
+====================================================================
+Processing ANWSCCM01
+Checking VMware Tools….
+I will attempt to shutdown ANWSCCM01
+====================================================================
+Processing ANWARUBAVMC01
+Checking VMware Tools….
+I will attempt to shutdown ANWARUBAVMC01
+====================================================================
+Processing ANWDC01
+Checking VMware Tools….
+I will attempt to shutdown ANWDC01
+Waiting for anwesx01.westcoast.co.uk VM-s to all PoweredOff ... [try: ]
+Waiting for anwesx01.westcoast.co.uk VM-s to all PoweredOff ... [try: 1]
+Waiting for anwesx01.westcoast.co.uk VM-s to all PoweredOff ... [try: 2]
+Waiting for anwesx01.westcoast.co.uk VM-s to all PoweredOff ... [try: 3]
+Waiting for anwesx01.westcoast.co.uk VM-s to all PoweredOff ... [try: 4]
+Waiting for anwesx01.westcoast.co.uk VM-s to all PoweredOff ... [try: 5]
+... All VM-s are PoweredOff on anwesx01.westcoast.co.uk. Continuing.
+Placing anwesx01.westcoast.co.uk into maintenance mode
+
+State                 : Maintenance
+ConnectionState       : Maintenance
+PowerState            : PoweredOn
+VMSwapfileDatastoreId :
+VMSwapfilePolicy      : WithVM
+ParentId              : Folder-group-h2290
+IsStandalone          : True
+Manufacturer          : HPE
+Model                 : ProLiant DL380 Gen10
+NumCpu                : 16
+CpuTotalMhz           : 33520
+CpuUsageMhz           : 2012
+LicenseKey            : HN09P-8Y11L-D8H8J-0R280-0M7LP
+MemoryTotalMB         : 130717.12890625
+MemoryTotalGB         : 127.653446197509765625
+MemoryUsageMB         : 24704
+MemoryUsageGB         : 24.125
+ProcessorType         : Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+HyperthreadingActive  : True
+TimeZone              : UTC
+Version               : 6.7.0
+Build                 : 16075168
+Parent                : host
+VMSwapfileDatastore   :
+StorageInfo           : HostStorageSystem-storageSystem-2353
+NetworkInfo           : ANWESX01:westcoast.co.uk
+DiagnosticPartition   :
+FirewallDefaultPolicy : VMHostFirewallDefaultPolicy:HostSystem-host-2353
+ApiVersion            : 6.7.3
+MaxEVCMode            : intel-skylake
+Name                  : anwesx01.westcoast.co.uk
+CustomFields          : {[AutoDeploy.MachineIdentity, ]}
+ExtensionData         : VMware.Vim.HostSystem
+Id                    : HostSystem-host-2353
+Uid                   : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VMHost=HostSystem-host-2353/
+DatastoreIdList       : {Datastore-datastore-2429}
+
+Waiting for anwesx01.westcoast.co.uk going to maintenance, plese wait ... [try: 1]
+... anwesx01.westcoast.co.uk is in maintenace, continuing
+Giving the host another 30 seconds to complete maintenance mode
+The host anwesx01.westcoast.co.uk is not compliant for the  Critical Host Patches (Predefined)  Baseline, attempting to remediate this baseline
+Deploying  Critical Host Patches (Predefined)  Baseline
+Removing host from Maintenance Mode
+
+State                 : Connected
+ConnectionState       : Connected
+PowerState            : PoweredOn
+VMSwapfileDatastoreId :
+VMSwapfilePolicy      : WithVM
+ParentId              : Folder-group-h2290
+IsStandalone          : True
+Manufacturer          : HPE
+Model                 : ProLiant DL380 Gen10
+NumCpu                : 16
+CpuTotalMhz           : 33520
+CpuUsageMhz           : 2374
+LicenseKey            : HN09P-8Y11L-D8H8J-0R280-0M7LP
+MemoryTotalMB         : 130717.1328125
+MemoryTotalGB         : 127.65345001220703125
+MemoryUsageMB         : 2718
+MemoryUsageGB         : 2.654296875
+ProcessorType         : Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+HyperthreadingActive  : True
+TimeZone              : UTC
+Version               : 6.7.0
+Build                 : 16713306
+Parent                : host
+VMSwapfileDatastore   :
+StorageInfo           : HostStorageSystem-storageSystem-2353
+NetworkInfo           : ANWESX01:westcoast.co.uk
+DiagnosticPartition   :
+FirewallDefaultPolicy : VMHostFirewallDefaultPolicy:HostSystem-host-2353
+ApiVersion            : 6.7.3
+MaxEVCMode            : intel-skylake
+Name                  : anwesx01.westcoast.co.uk
+CustomFields          : {[AutoDeploy.MachineIdentity, ]}
+ExtensionData         : VMware.Vim.HostSystem
+Id                    : HostSystem-host-2353
+Uid                   : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VMHost=HostSystem-host-2353/
+DatastoreIdList       : {Datastore-datastore-2429}
+
+Let's process all the auto-startup VMs on the host
+
+PowerState              : PoweredOn
+Version                 : v14
+HardwareVersion         : vmx-14
+Notes                   :
+Guest                   : ANWSCCM01:
+NumCpu                  : 4
+CoresPerSocket          : 1
+MemoryMB                : 8192
+MemoryGB                : 8
+VMHostId                : HostSystem-host-2353
+VMHost                  : anwesx01.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v2289
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-2352
+ResourcePool            : Resources
+PersistentId            : 52d5360d-67fa-e8e2-6b73-28a1d6f00b14
+UsedSpaceGB             : 258.08692934922873973846435547
+ProvisionedSpaceGB      : 258.08693029172718524932861328
+DatastoreIdList         : {Datastore-datastore-2429}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/4000 MemShares:Normal/81920
+GuestId                 : windows9Server64Guest
+CreateDate              : 09/09/2019 15:10:17
+Name                    : ANWSCCM01
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-2723
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-2723/
+
+Waiting for ANWSCCM01 to power up and please wait ... [try: 2]
+Waiting for ANWSCCM01 to power up and please wait ... [try: 2]
+Waiting for ANWSCCM01 to power up and please wait ... [try: 2]
+Waiting for ANWSCCM01 to power up and please wait ... [try: 2]
+ANWSCCM01 has now got VMware tools running, let's give it 30 seconds before continuing
+
+PowerState              : PoweredOn
+Version                 : v8
+HardwareVersion         : vmx-08
+Notes                   :
+Guest                   : ANWARUBAVMC01:
+NumCpu                  : 5
+CoresPerSocket          : 5
+MemoryMB                : 8192
+MemoryGB                : 8
+VMHostId                : HostSystem-host-2353
+VMHost                  : anwesx01.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v2761
+Folder                  : Discovered virtual machine
+ResourcePoolId          : ResourcePool-resgroup-2352
+ResourcePool            : Resources
+PersistentId            : 524d65c4-77e6-1d32-ac80-34c304e7e19f
+UsedSpaceGB             : 17.464632925577461719512939453
+ProvisionedSpaceGB      : 20.087680718861520290374755859
+DatastoreIdList         : {Datastore-datastore-2429}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/5000 MemShares:Normal/81920
+GuestId                 : rhel6_64Guest
+CreateDate              : 27/09/2019 10:02:27
+Name                    : ANWARUBAVMC01
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-2764
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-2764/
+
+Waiting for ANWARUBAVMC01 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC01 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC01 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC01 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC01 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC01 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC01 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC01 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC01 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC01 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC01 to power up and please wait ... [try: 2]
+ANWARUBAVMC01 has now got VMware tools running, let's give it 30 seconds before continuing
+
+PowerState              : PoweredOn
+Version                 : v14
+HardwareVersion         : vmx-14
+Notes                   :
+Guest                   : ANWDC01:
+NumCpu                  : 4
+CoresPerSocket          : 1
+MemoryMB                : 8192
+MemoryGB                : 8
+VMHostId                : HostSystem-host-2353
+VMHost                  : anwesx01.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v2289
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-2352
+ResourcePool            : Resources
+PersistentId            : 52136420-f2ff-4a38-7b11-62696489d14f
+UsedSpaceGB             : 108.08667785488069057464599609
+ProvisionedSpaceGB      : 108.08667832519859075546264648
+DatastoreIdList         : {Datastore-datastore-2429}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/4000 MemShares:Normal/81920
+GuestId                 : windows9Server64Guest
+CreateDate              : 11/09/2019 19:11:25
+Name                    : ANWDC01
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-2720
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-2720/
+
+Waiting for ANWDC01 to power up and please wait ... [try: 2]
+Waiting for ANWDC01 to power up and please wait ... [try: 2]
+Waiting for ANWDC01 to power up and please wait ... [try: 2]
+Waiting for ANWDC01 to power up and please wait ... [try: 2]
+Waiting for ANWDC01 to power up and please wait ... [try: 2]
+Waiting for ANWDC01 to power up and please wait ... [try: 2]
+Waiting for ANWDC01 to power up and please wait ... [try: 2]
+Waiting for ANWDC01 to power up and please wait ... [try: 2]
+Waiting for ANWDC01 to power up and please wait ... [try: 2]
+ANWDC01 has now got VMware tools running, let's give it 30 seconds before continuing
+The host anwesx01.westcoast.co.uk is compliant for the  Non-Critical Host Patches (Predefined)  Baseline, skipping to next Baseline
+Processing anwesx02.westcoast.co.uk
+====================================================================
+anwesx02.westcoast.co.uk has some remediation work to do, shutting down VMs and placing host into maintenance mode
+====================================================================
+Processing ANWDC02
+Checking VMware Tools….
+I will attempt to shutdown ANWDC02
+====================================================================
+Processing ANWMIVMCD01
+Checking VMware Tools….
+I will attempt to shutdown ANWMIVMCD01
+====================================================================
+Processing ANWARUBAVMC02
+Checking VMware Tools….
+I will attempt to shutdown ANWARUBAVMC02
+Waiting for anwesx02.westcoast.co.uk VM-s to all PoweredOff ... [try: 2]
+Waiting for anwesx02.westcoast.co.uk VM-s to all PoweredOff ... [try: 3]
+Waiting for anwesx02.westcoast.co.uk VM-s to all PoweredOff ... [try: 4]
+Waiting for anwesx02.westcoast.co.uk VM-s to all PoweredOff ... [try: 5]
+Waiting for anwesx02.westcoast.co.uk VM-s to all PoweredOff ... [try: 6]
+Waiting for anwesx02.westcoast.co.uk VM-s to all PoweredOff ... [try: 7]
+Waiting for anwesx02.westcoast.co.uk VM-s to all PoweredOff ... [try: 8]
+... All VM-s are PoweredOff on anwesx02.westcoast.co.uk. Continuing.
+Placing anwesx02.westcoast.co.uk into maintenance mode
+
+State                 : Maintenance
+ConnectionState       : Maintenance
+PowerState            : PoweredOn
+VMSwapfileDatastoreId :
+VMSwapfilePolicy      : WithVM
+ParentId              : Folder-group-h2290
+IsStandalone          : True
+Manufacturer          : HPE
+Model                 : ProLiant DL380 Gen10
+NumCpu                : 16
+CpuTotalMhz           : 33520
+CpuUsageMhz           : 2011
+LicenseKey            : HN09P-8Y11L-D8H8J-0R280-0M7LP
+MemoryTotalMB         : 130717.12890625
+MemoryTotalGB         : 127.653446197509765625
+MemoryUsageMB         : 4706
+MemoryUsageGB         : 4.595703125
+ProcessorType         : Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+HyperthreadingActive  : True
+TimeZone              : UTC
+Version               : 6.7.0
+Build                 : 16075168
+Parent                : host
+VMSwapfileDatastore   :
+StorageInfo           : HostStorageSystem-storageSystem-2882
+NetworkInfo           : ANWESX02:westcoast.co.uk
+DiagnosticPartition   :
+FirewallDefaultPolicy : VMHostFirewallDefaultPolicy:HostSystem-host-2882
+ApiVersion            : 6.7.3
+MaxEVCMode            : intel-skylake
+Name                  : anwesx02.westcoast.co.uk
+CustomFields          : {[AutoDeploy.MachineIdentity, ]}
+ExtensionData         : VMware.Vim.HostSystem
+Id                    : HostSystem-host-2882
+Uid                   : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VMHost=HostSystem-host-2882/
+DatastoreIdList       : {Datastore-datastore-2883}
+
+Waiting for anwesx02.westcoast.co.uk going to maintenance, plese wait ... [try: 1]
+... anwesx02.westcoast.co.uk is in maintenace, continuing
+Giving the host another 30 seconds to complete maintenance mode
+The host anwesx02.westcoast.co.uk is not compliant for the  Critical Host Patches (Predefined)  Baseline, attempting to remediate this baseline
+Deploying  Critical Host Patches (Predefined)  Baseline
+Removing host from Maintenance Mode
+
+State                 : Connected
+ConnectionState       : Connected
+PowerState            : PoweredOn
+VMSwapfileDatastoreId :
+VMSwapfilePolicy      : WithVM
+ParentId              : Folder-group-h2290
+IsStandalone          : True
+Manufacturer          : HPE
+Model                 : ProLiant DL380 Gen10
+NumCpu                : 16
+CpuTotalMhz           : 33520
+CpuUsageMhz           : 1160
+LicenseKey            : HN09P-8Y11L-D8H8J-0R280-0M7LP
+MemoryTotalMB         : 130717.1328125
+MemoryTotalGB         : 127.65345001220703125
+MemoryUsageMB         : 2669
+MemoryUsageGB         : 2.6064453125
+ProcessorType         : Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+HyperthreadingActive  : True
+TimeZone              : UTC
+Version               : 6.7.0
+Build                 : 16713306
+Parent                : host
+VMSwapfileDatastore   :
+StorageInfo           : HostStorageSystem-storageSystem-2882
+NetworkInfo           : ANWESX02:westcoast.co.uk
+DiagnosticPartition   :
+FirewallDefaultPolicy : VMHostFirewallDefaultPolicy:HostSystem-host-2882
+ApiVersion            : 6.7.3
+MaxEVCMode            : intel-skylake
+Name                  : anwesx02.westcoast.co.uk
+CustomFields          : {[AutoDeploy.MachineIdentity, ]}
+ExtensionData         : VMware.Vim.HostSystem
+Id                    : HostSystem-host-2882
+Uid                   : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VMHost=HostSystem-host-2882/
+DatastoreIdList       : {Datastore-datastore-2883}
+
+Let's process all the auto-startup VMs on the host
+
+PowerState              : PoweredOn
+Version                 : v14
+HardwareVersion         : vmx-14
+Notes                   :
+Guest                   : ANWDC02:
+NumCpu                  : 4
+CoresPerSocket          : 1
+MemoryMB                : 8192
+MemoryGB                : 8
+VMHostId                : HostSystem-host-2882
+VMHost                  : anwesx02.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v2289
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-2881
+ResourcePool            : Resources
+PersistentId            : 52417758-be43-94d9-d212-baf914cf5937
+UsedSpaceGB             : 38.801452807150781154632568359
+ProvisionedSpaceGB      : 108.08660954982042312622070312
+DatastoreIdList         : {Datastore-datastore-2883, Datastore-datastore-2429}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/4000 MemShares:Normal/81920
+GuestId                 : windows9Server64Guest
+CreateDate              : 09/09/2019 14:38:23
+Name                    : ANWDC02
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-2884
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-2884/
+
+Waiting for ANWDC02 to power up and please wait ... [try: 2]
+Waiting for ANWDC02 to power up and please wait ... [try: 2]
+Waiting for ANWDC02 to power up and please wait ... [try: 2]
+Waiting for ANWDC02 to power up and please wait ... [try: 2]
+Waiting for ANWDC02 to power up and please wait ... [try: 2]
+Waiting for ANWDC02 to power up and please wait ... [try: 2]
+Waiting for ANWDC02 to power up and please wait ... [try: 2]
+Waiting for ANWDC02 to power up and please wait ... [try: 2]
+ANWDC02 has now got VMware tools running, let's give it 30 seconds before continuing
+
+PowerState              : PoweredOn
+Version                 : v11
+HardwareVersion         : vmx-11
+Notes                   : MiVoice Business software provides advanced communication capabilities for businesses of all sizes.  It allows companies to operate their communications system with
+                          flexibility, ease, and reliability.  This powerful software which historically has been offered on a choice of platforms, such as the proprietary Mitel 3300 ICP or industry
+                          standard servers, is now available as a Virtual Appliance for deployment as part of a VMware enabled virtual infrastructure in a business's IT Data Center.  Delivering
+                          MiVoice Business as a Virtual Appliance enables businesses to extend their IT Data Center management best practices to include business communications software -
+                          consolidated management best practices, saving costs, time, and energy.
+
+                          For more information, please visit www.mitel.com or contact your nearest authorized Mitel reseller.
+Guest                   : ANWMIVMCD01:
+NumCpu                  : 3
+CoresPerSocket          : 1
+MemoryMB                : 2048
+MemoryGB                : 2
+VMHostId                : HostSystem-host-2882
+VMHost                  : anwesx02.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v2289
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-2881
+ResourcePool            : Resources
+PersistentId            : 526d92aa-3599-1987-8266-81aec5476452
+UsedSpaceGB             : 20.08300125598907470703125
+ProvisionedSpaceGB      : 20.083001730963587760925292969
+DatastoreIdList         : {Datastore-datastore-2883}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/3000 MemShares:Normal/20480
+GuestId                 : centos64Guest
+CreateDate              : 04/10/2019 12:54:27
+Name                    : ANWMIVMCD01
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-2887
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-2887/
+
+Waiting for ANWMIVMCD01 to power up and please wait ... [try: 2]
+Waiting for ANWMIVMCD01 to power up and please wait ... [try: 2]
+Waiting for ANWMIVMCD01 to power up and please wait ... [try: 2]
+Waiting for ANWMIVMCD01 to power up and please wait ... [try: 2]
+Waiting for ANWMIVMCD01 to power up and please wait ... [try: 2]
+ANWMIVMCD01 has now got VMware tools running, let's give it 30 seconds before continuing
+
+PowerState              : PoweredOn
+Version                 : v8
+HardwareVersion         : vmx-08
+Notes                   : Contains ArubaOS_VMC_8.5.0.1_71357 in partition 0 and partition 1
+Guest                   : ANWARUBAVMC02:
+NumCpu                  : 5
+CoresPerSocket          : 5
+MemoryMB                : 8192
+MemoryGB                : 8
+VMHostId                : HostSystem-host-2882
+VMHost                  : anwesx02.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v2289
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-2881
+ResourcePool            : Resources
+PersistentId            : 5204a5c3-d0e1-2cd5-e813-cf6f2c398de5
+UsedSpaceGB             : 17.464648345485329627990722656
+ProvisionedSpaceGB      : 20.087696138769388198852539062
+DatastoreIdList         : {Datastore-datastore-2883}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/5000 MemShares:Normal/81920
+GuestId                 : rhel6_64Guest
+CreateDate              : 27/09/2019 10:02:50
+Name                    : ANWARUBAVMC02
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-2886
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-2886/
+
+Waiting for ANWARUBAVMC02 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC02 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC02 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC02 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC02 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC02 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC02 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC02 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC02 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC02 to power up and please wait ... [try: 2]
+Waiting for ANWARUBAVMC02 to power up and please wait ... [try: 2]
+ANWARUBAVMC02 has now got VMware tools running, let's give it 30 seconds before continuing
+The host anwesx02.westcoast.co.uk is compliant for the  Non-Critical Host Patches (Predefined)  Baseline, skipping to next Baseline
+Processing enwesx01.westcoast.co.uk
+====================================================================
+enwesx01.westcoast.co.uk has some remediation work to do, shutting down VMs and placing host into maintenance mode
+Waiting for enwesx01.westcoast.co.uk VM-s to all PoweredOff ... [try: 2]
+... All VM-s are PoweredOff on enwesx01.westcoast.co.uk. Continuing.
+Placing enwesx01.westcoast.co.uk into maintenance mode
+
+State                 : Maintenance
+ConnectionState       : Maintenance
+PowerState            : PoweredOn
+VMSwapfileDatastoreId :
+VMSwapfilePolicy      : WithVM
+ParentId              : Folder-group-h115
+IsStandalone          : True
+Manufacturer          : HPE
+Model                 : ProLiant DL360 Gen10
+NumCpu                : 24
+CpuTotalMhz           : 55056
+CpuUsageMhz           : 135
+LicenseKey            : NN603-4YHEK-J8J8T-0X806-1M9QN
+MemoryTotalMB         : 65192.21484375
+MemoryTotalGB         : 63.664272308349609375
+MemoryUsageMB         : 3162
+MemoryUsageGB         : 3.087890625
+ProcessorType         : Intel(R) Xeon(R) Gold 5118 CPU @ 2.30GHz
+HyperthreadingActive  : True
+TimeZone              : UTC
+Version               : 6.7.0
+Build                 : 16075168
+Parent                : host
+VMSwapfileDatastore   :
+StorageInfo           : HostStorageSystem-storageSystem-209
+NetworkInfo           : ENWESX01:westcoast.co.uk
+DiagnosticPartition   :
+FirewallDefaultPolicy : VMHostFirewallDefaultPolicy:HostSystem-host-209
+ApiVersion            : 6.7.3
+MaxEVCMode            : intel-skylake
+Name                  : enwesx01.westcoast.co.uk
+CustomFields          : {[AutoDeploy.MachineIdentity, ]}
+ExtensionData         : VMware.Vim.HostSystem
+Id                    : HostSystem-host-209
+Uid                   : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VMHost=HostSystem-host-209/
+DatastoreIdList       : {Datastore-datastore-210}
+
+Waiting for enwesx01.westcoast.co.uk going to maintenance, plese wait ... [try: 1]
+... enwesx01.westcoast.co.uk is in maintenace, continuing
+Giving the host another 30 seconds to complete maintenance mode
+The host enwesx01.westcoast.co.uk is not compliant for the  Critical Host Patches (Predefined)  Baseline, attempting to remediate this baseline
+Deploying  Critical Host Patches (Predefined)  Baseline
+Removing host from Maintenance Mode
+
+State                 : Connected
+ConnectionState       : Connected
+PowerState            : PoweredOn
+VMSwapfileDatastoreId :
+VMSwapfilePolicy      : WithVM
+ParentId              : Folder-group-h115
+IsStandalone          : True
+Manufacturer          : HPE
+Model                 : ProLiant DL360 Gen10
+NumCpu                : 24
+CpuTotalMhz           : 55056
+CpuUsageMhz           : 0
+LicenseKey            : NN603-4YHEK-J8J8T-0X806-1M9QN
+MemoryTotalMB         : 65192.21875
+MemoryTotalGB         : 63.664276123046875
+MemoryUsageMB         : 2914
+MemoryUsageGB         : 2.845703125
+ProcessorType         : Intel(R) Xeon(R) Gold 5118 CPU @ 2.30GHz
+HyperthreadingActive  : True
+TimeZone              : UTC
+Version               : 6.7.0
+Build                 : 16713306
+Parent                : host
+VMSwapfileDatastore   :
+StorageInfo           : HostStorageSystem-storageSystem-209
+NetworkInfo           : ENWESX01:westcoast.co.uk
+DiagnosticPartition   :
+FirewallDefaultPolicy : VMHostFirewallDefaultPolicy:HostSystem-host-209
+ApiVersion            : 6.7.3
+MaxEVCMode            : intel-skylake
+Name                  : enwesx01.westcoast.co.uk
+CustomFields          : {[AutoDeploy.MachineIdentity, ]}
+ExtensionData         : VMware.Vim.HostSystem
+Id                    : HostSystem-host-209
+Uid                   : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VMHost=HostSystem-host-209/
+DatastoreIdList       : {Datastore-datastore-210}
+
+Let's process all the auto-startup VMs on the host
+The host enwesx01.westcoast.co.uk is compliant for the  Non-Critical Host Patches (Predefined)  Baseline, skipping to next Baseline
+The host enwesx01.westcoast.co.uk is compliant for the  HP ESX Updates  Baseline, skipping to next Baseline
+Processing enwesx001.westcoast.co.uk
+====================================================================
+enwesx001.westcoast.co.uk has some remediation work to do, shutting down VMs and placing host into maintenance mode
+====================================================================
+Processing ENWMIVMIC01
+Checking VMware Tools….
+I will attempt to shutdown ENWMIVMIC01
+====================================================================
+Processing ENWDC01
+Checking VMware Tools….
+I will attempt to shutdown ENWDC01
+====================================================================
+Processing ENWMIVMCD01
+Checking VMware Tools….
+I will attempt to shutdown ENWMIVMCD01
+====================================================================
+Processing ENXPROXY01N01
+Checking VMware Tools….
+I will attempt to shutdown ENXPROXY01N01
+====================================================================
+Processing ENWRIBSBC01
+Checking VMware Tools….
+ENWRIBSBC01 doesn’t have vmware tools installed, hard power this one
+
+PowerState              : PoweredOff
+Version                 : v8
+HardwareVersion         : vmx-08
+Notes                   : Veeam Backup:  Job name: [VMWare Backup - No Tools], Time: [27/08/2020 18:17:44], Backup host: [XMABACKUPNG02], Backup folder: [[XMABACKUPNG02.xma.co.uk]
+                          D:\Veeam\Backups\VMWare Backup - No Tools_1]
+Guest                   : ENWRIBSBC01:Other (64-bit)
+NumCpu                  : 1
+CoresPerSocket          : 1
+MemoryMB                : 1024
+MemoryGB                : 1
+VMHostId                : HostSystem-host-14362
+VMHost                  : enwesx001.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v114
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-14361
+ResourcePool            : Resources
+PersistentId            : 5028cacb-307e-39a8-812f-dad6105d5e13
+UsedSpaceGB             : 5.0015579434111714363098144531
+ProvisionedSpaceGB      : 6.1912251869216561317443847656
+DatastoreIdList         : {Datastore-datastore-14364}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/1000 MemShares:Normal/10240
+GuestId                 : otherGuest64
+CreateDate              : 17/07/2020 08:59:45
+Name                    : ENWRIBSBC01
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-15654
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-15654/
+
+====================================================================
+Processing ENWPROXY01N01
+Checking VMware Tools….
+I will attempt to shutdown ENWPROXY01N01
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 2]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 3]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 4]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 5]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 6]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 7]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 8]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 9]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 10]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 11]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 12]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 13]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 14]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 15]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 16]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 17]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 18]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 19]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 20]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 21]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 22]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 23]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 24]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 25]
+Waiting for enwesx001.westcoast.co.uk VM-s to all PoweredOff ... [try: 26]
+... All VM-s are PoweredOff on enwesx001.westcoast.co.uk. Continuing.
+Placing enwesx001.westcoast.co.uk into maintenance mode
+
+State                 : Maintenance
+ConnectionState       : Maintenance
+PowerState            : PoweredOn
+VMSwapfileDatastoreId :
+VMSwapfilePolicy      : WithVM
+ParentId              : Folder-group-h115
+IsStandalone          : True
+Manufacturer          : HP
+Model                 : ProLiant DL380 Gen9
+NumCpu                : 8
+CpuTotalMhz           : 16776
+CpuUsageMhz           : 414
+LicenseKey            : MJ091-082E2-58T9Z-0N22P-38W3H
+MemoryTotalMB         : 65406.03515625
+MemoryTotalGB         : 63.873081207275390625
+MemoryUsageMB         : 7225
+MemoryUsageGB         : 7.0556640625
+ProcessorType         : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+HyperthreadingActive  : True
+TimeZone              : UTC
+Version               : 6.7.0
+Build                 : 16316930
+Parent                : host
+VMSwapfileDatastore   :
+StorageInfo           : HostStorageSystem-storageSystem-14362
+NetworkInfo           : ENWESX001:
+DiagnosticPartition   :
+FirewallDefaultPolicy : VMHostFirewallDefaultPolicy:HostSystem-host-14362
+ApiVersion            : 6.7.3
+MaxEVCMode            : intel-broadwell
+Name                  : enwesx001.westcoast.co.uk
+CustomFields          : {[AutoDeploy.MachineIdentity, ]}
+ExtensionData         : VMware.Vim.HostSystem
+Id                    : HostSystem-host-14362
+Uid                   : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VMHost=HostSystem-host-14362/
+DatastoreIdList       : {Datastore-datastore-14363, Datastore-datastore-14364}
+
+Waiting for enwesx001.westcoast.co.uk going to maintenance, plese wait ... [try: 1]
+... enwesx001.westcoast.co.uk is in maintenace, continuing
+Giving the host another 30 seconds to complete maintenance mode
+The host enwesx001.westcoast.co.uk is not compliant for the  Critical Host Patches (Predefined)  Baseline, attempting to remediate this baseline
+Deploying  Critical Host Patches (Predefined)  Baseline
+Removing host from Maintenance Mode
+
+State                 : Connected
+ConnectionState       : Connected
+PowerState            : PoweredOn
+VMSwapfileDatastoreId :
+VMSwapfilePolicy      : WithVM
+ParentId              : Folder-group-h115
+IsStandalone          : True
+Manufacturer          : HP
+Model                 : ProLiant DL380 Gen9
+NumCpu                : 8
+CpuTotalMhz           : 16776
+CpuUsageMhz           : 452
+LicenseKey            : MJ091-082E2-58T9Z-0N22P-38W3H
+MemoryTotalMB         : 65406.0390625
+MemoryTotalGB         : 63.87308502197265625
+MemoryUsageMB         : 2222
+MemoryUsageGB         : 2.169921875
+ProcessorType         : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+HyperthreadingActive  : True
+TimeZone              : UTC
+Version               : 6.7.0
+Build                 : 16713306
+Parent                : host
+VMSwapfileDatastore   :
+StorageInfo           : HostStorageSystem-storageSystem-14362
+NetworkInfo           : ENWESX001:
+DiagnosticPartition   :
+FirewallDefaultPolicy : VMHostFirewallDefaultPolicy:HostSystem-host-14362
+ApiVersion            : 6.7.3
+MaxEVCMode            : intel-broadwell
+Name                  : enwesx001.westcoast.co.uk
+CustomFields          : {[AutoDeploy.MachineIdentity, ]}
+ExtensionData         : VMware.Vim.HostSystem
+Id                    : HostSystem-host-14362
+Uid                   : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VMHost=HostSystem-host-14362/
+DatastoreIdList       : {Datastore-datastore-14363, Datastore-datastore-14364}
+
+Let's process all the auto-startup VMs on the host
+
+PowerState              : PoweredOn
+Version                 : v11
+HardwareVersion         : vmx-11
+Notes                   : Veeam Backup:  Job name: [VMWare Backup - No Tools], Time: [27/08/2020 18:17:24], Backup host: [XMABACKUPNG02], Backup folder: [[XMABACKUPNG02.xma.co.uk]
+                          D:\Veeam\Backups\VMWare Backup - No Tools_1]
+Guest                   : ENWMIVMIC01:
+NumCpu                  : 2
+CoresPerSocket          : 1
+MemoryMB                : 5120
+MemoryGB                : 5
+VMHostId                : HostSystem-host-14362
+VMHost                  : enwesx001.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v114
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-14361
+ResourcePool            : Resources
+PersistentId            : 52746f87-391b-614f-6626-2d1b7102011f
+UsedSpaceGB             : 35.350519510917365550994873047
+ProvisionedSpaceGB      : 49.098566939122974872589111328
+DatastoreIdList         : {Datastore-datastore-14364}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/2000 MemShares:Normal/51200
+GuestId                 : centos64Guest
+CreateDate              : 01/01/1970 00:00:00
+Name                    : ENWMIVMIC01
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-285
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-285/
+
+Waiting for ENWMIVMIC01 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMIC01 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMIC01 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMIC01 to power up and please wait ... [try: 2]
+ENWMIVMIC01 has now got VMware tools running, let's give it 30 seconds before continuing
+
+PowerState              : PoweredOn
+Version                 : v14
+HardwareVersion         : vmx-14
+Notes                   :
+Guest                   : ENWDC01:
+NumCpu                  : 4
+CoresPerSocket          : 1
+MemoryMB                : 8192
+MemoryGB                : 8
+VMHostId                : HostSystem-host-14362
+VMHost                  : enwesx001.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v114
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-14361
+ResourcePool            : Resources
+PersistentId            : 50285d93-cf3f-b892-1e31-09e6a1c48abb
+UsedSpaceGB             : 108.08507479075342416763305664
+ProvisionedSpaceGB      : 108.08507539518177509307861328
+DatastoreIdList         : {Datastore-datastore-14364}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/4000 MemShares:Normal/81920
+GuestId                 : windows8Server64Guest
+CreateDate              : 13/06/2020 07:18:31
+Name                    : ENWDC01
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-13464
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-13464/
+
+Waiting for ENWDC01 to power up and please wait ... [try: 2]
+Waiting for ENWDC01 to power up and please wait ... [try: 2]
+Waiting for ENWDC01 to power up and please wait ... [try: 2]
+Waiting for ENWDC01 to power up and please wait ... [try: 2]
+Waiting for ENWDC01 to power up and please wait ... [try: 2]
+Waiting for ENWDC01 to power up and please wait ... [try: 2]
+Waiting for ENWDC01 to power up and please wait ... [try: 2]
+ENWDC01 has now got VMware tools running, let's give it 30 seconds before continuing
+
+PowerState              : PoweredOn
+Version                 : v11
+HardwareVersion         : vmx-11
+Notes                   : Veeam Backup:  Job name: [VMWare Backup - No Tools], Time: [27/08/2020 18:16:59], Backup host: [XMABACKUPNG02], Backup folder: [[XMABACKUPNG02.xma.co.uk]
+                          D:\Veeam\Backups\VMWare Backup - No Tools_1]
+Guest                   : ENWMIVMCD01:
+NumCpu                  : 4
+CoresPerSocket          : 1
+MemoryMB                : 2048
+MemoryGB                : 2
+VMHostId                : HostSystem-host-14362
+VMHost                  : enwesx001.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v114
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-14361
+ResourcePool            : Resources
+PersistentId            : 525617a3-38e2-25a4-e384-851c239d0e28
+UsedSpaceGB             : 20.102404491044580936431884766
+ProvisionedSpaceGB      : 20.102405044250190258026123047
+DatastoreIdList         : {Datastore-datastore-14364}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/4000 MemShares:Normal/20480
+GuestId                 : other26xLinux64Guest
+CreateDate              : 01/01/1970 00:00:00
+Name                    : ENWMIVMCD01
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-283
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-283/
+
+Waiting for ENWMIVMCD01 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMCD01 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMCD01 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMCD01 to power up and please wait ... [try: 2]
+ENWMIVMCD01 has now got VMware tools running, let's give it 30 seconds before continuing
+
+PowerState              : PoweredOn
+Version                 : v14
+HardwareVersion         : vmx-14
+Notes                   :
+Guest                   : ENXPROXY01N01:
+NumCpu                  : 6
+CoresPerSocket          : 1
+MemoryMB                : 10240
+MemoryGB                : 10
+VMHostId                : HostSystem-host-14362
+VMHost                  : enwesx001.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v114
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-14361
+ResourcePool            : Resources
+PersistentId            : 5028b7ed-d235-2837-7898-5d109e8138d5
+UsedSpaceGB             : 110.08890883065760135650634766
+ProvisionedSpaceGB      : 110.08890944067388772964477539
+DatastoreIdList         : {Datastore-datastore-14364}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/6000 MemShares:Normal/102400
+GuestId                 : windows8Server64Guest
+CreateDate              : 13/06/2020 07:21:49
+Name                    : ENXPROXY01N01
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-13466
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-13466/
+
+Waiting for ENXPROXY01N01 to power up and please wait ... [try: 2]
+Waiting for ENXPROXY01N01 to power up and please wait ... [try: 2]
+Waiting for ENXPROXY01N01 to power up and please wait ... [try: 2]
+ENXPROXY01N01 has now got VMware tools running, let's give it 30 seconds before continuing
+Powering on ENWRIBSBC01, since it doesn't have vmtools I will wait 30 seconds then continue with the next VM
+
+PowerState              : PoweredOn
+Version                 : v8
+HardwareVersion         : vmx-08
+Notes                   : Veeam Backup:  Job name: [VMWare Backup - No Tools], Time: [27/08/2020 18:17:44], Backup host: [XMABACKUPNG02], Backup folder: [[XMABACKUPNG02.xma.co.uk]
+                          D:\Veeam\Backups\VMWare Backup - No Tools_1]
+Guest                   : ENWRIBSBC01:
+NumCpu                  : 1
+CoresPerSocket          : 1
+MemoryMB                : 1024
+MemoryGB                : 1
+VMHostId                : HostSystem-host-14362
+VMHost                  : enwesx001.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v114
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-14361
+ResourcePool            : Resources
+PersistentId            : 5028cacb-307e-39a8-812f-dad6105d5e13
+UsedSpaceGB             : 6.0797077650204300880432128906
+ProvisionedSpaceGB      : 6.0797082604840397834777832031
+DatastoreIdList         : {Datastore-datastore-14364}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/1000 MemShares:Normal/10240
+GuestId                 : otherGuest64
+CreateDate              : 17/07/2020 08:59:45
+Name                    : ENWRIBSBC01
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-15654
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-15654/
+
+
+PowerState              : PoweredOn
+Version                 : v14
+HardwareVersion         : vmx-14
+Notes                   :
+Guest                   : ENWPROXY01N01:
+NumCpu                  : 6
+CoresPerSocket          : 1
+MemoryMB                : 14336
+MemoryGB                : 14
+VMHostId                : HostSystem-host-14362
+VMHost                  : enwesx001.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v114
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-14361
+ResourcePool            : Resources
+PersistentId            : 5028bfb7-9cfb-286c-d179-8dc7417f25a3
+UsedSpaceGB             : 114.08872024621814489364624023
+ProvisionedSpaceGB      : 114.08872083481401205062866210
+DatastoreIdList         : {Datastore-datastore-14364}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/6000 MemShares:Normal/143360
+GuestId                 : windows8Server64Guest
+CreateDate              : 13/06/2020 07:20:19
+Name                    : ENWPROXY01N01
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-13465
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-13465/
+
+Waiting for ENWPROXY01N01 to power up and please wait ... [try: 2]
+Waiting for ENWPROXY01N01 to power up and please wait ... [try: 2]
+Waiting for ENWPROXY01N01 to power up and please wait ... [try: 2]
+Waiting for ENWPROXY01N01 to power up and please wait ... [try: 2]
+Waiting for ENWPROXY01N01 to power up and please wait ... [try: 2]
+ENWPROXY01N01 has now got VMware tools running, let's give it 30 seconds before continuing
+The host enwesx001.westcoast.co.uk is compliant for the  Non-Critical Host Patches (Predefined)  Baseline, skipping to next Baseline
+Processing enwesx002.westcoast.co.uk
+====================================================================
+enwesx002.westcoast.co.uk has some remediation work to do, shutting down VMs and placing host into maintenance mode
+====================================================================
+Processing ENXPROXY01N02
+Checking VMware Tools….
+I will attempt to shutdown ENXPROXY01N02
+====================================================================
+Processing ENWDC02
+Checking VMware Tools….
+I will attempt to shutdown ENWDC02
+====================================================================
+Processing ENWPROXY01N02
+Checking VMware Tools….
+I will attempt to shutdown ENWPROXY01N02
+====================================================================
+Processing ENWMIVMBG01
+Checking VMware Tools….
+I will attempt to shutdown ENWMIVMBG01
+Waiting for enwesx002.westcoast.co.uk VM-s to all PoweredOff ... [try: 2]
+Waiting for enwesx002.westcoast.co.uk VM-s to all PoweredOff ... [try: 3]
+Waiting for enwesx002.westcoast.co.uk VM-s to all PoweredOff ... [try: 4]
+Waiting for enwesx002.westcoast.co.uk VM-s to all PoweredOff ... [try: 5]
+Waiting for enwesx002.westcoast.co.uk VM-s to all PoweredOff ... [try: 6]
+Waiting for enwesx002.westcoast.co.uk VM-s to all PoweredOff ... [try: 7]
+Waiting for enwesx002.westcoast.co.uk VM-s to all PoweredOff ... [try: 8]
+Waiting for enwesx002.westcoast.co.uk VM-s to all PoweredOff ... [try: 9]
+Waiting for enwesx002.westcoast.co.uk VM-s to all PoweredOff ... [try: 10]
+Waiting for enwesx002.westcoast.co.uk VM-s to all PoweredOff ... [try: 11]
+Waiting for enwesx002.westcoast.co.uk VM-s to all PoweredOff ... [try: 12]
+... All VM-s are PoweredOff on enwesx002.westcoast.co.uk. Continuing.
+Placing enwesx002.westcoast.co.uk into maintenance mode
+
+State                 : Maintenance
+ConnectionState       : Maintenance
+PowerState            : PoweredOn
+VMSwapfileDatastoreId :
+VMSwapfilePolicy      : WithVM
+ParentId              : Folder-group-h115
+IsStandalone          : True
+Manufacturer          : HP
+Model                 : ProLiant DL380 Gen9
+NumCpu                : 8
+CpuTotalMhz           : 16776
+CpuUsageMhz           : 2573
+LicenseKey            : NN603-4YHEK-J8J8T-0X806-1M9QN
+MemoryTotalMB         : 65406.0390625
+MemoryTotalGB         : 63.87308502197265625
+MemoryUsageMB         : 3265
+MemoryUsageGB         : 3.1884765625
+ProcessorType         : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+HyperthreadingActive  : True
+TimeZone              : UTC
+Version               : 6.7.0
+Build                 : 15160138
+Parent                : host
+VMSwapfileDatastore   :
+StorageInfo           : HostStorageSystem-storageSystem-13180
+NetworkInfo           : ENWESX002:westcoast.co.uk
+DiagnosticPartition   :
+FirewallDefaultPolicy : VMHostFirewallDefaultPolicy:HostSystem-host-13180
+ApiVersion            : 6.7.3
+MaxEVCMode            : intel-broadwell
+Name                  : enwesx002.westcoast.co.uk
+CustomFields          : {[AutoDeploy.MachineIdentity, ]}
+ExtensionData         : VMware.Vim.HostSystem
+Id                    : HostSystem-host-13180
+Uid                   : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VMHost=HostSystem-host-13180/
+DatastoreIdList       : {Datastore-datastore-13181, Datastore-datastore-13183}
+
+Waiting for enwesx002.westcoast.co.uk going to maintenance, plese wait ... [try: 1]
+... enwesx002.westcoast.co.uk is in maintenace, continuing
+Giving the host another 30 seconds to complete maintenance mode
+The host enwesx002.westcoast.co.uk is not compliant for the  Critical Host Patches (Predefined)  Baseline, attempting to remediate this baseline
+Deploying  Critical Host Patches (Predefined)  Baseline
+Removing host from Maintenance Mode
+
+State                 : Connected
+ConnectionState       : Connected
+PowerState            : PoweredOn
+VMSwapfileDatastoreId :
+VMSwapfilePolicy      : WithVM
+ParentId              : Folder-group-h115
+IsStandalone          : True
+Manufacturer          : HP
+Model                 : ProLiant DL380 Gen9
+NumCpu                : 8
+CpuTotalMhz           : 16776
+CpuUsageMhz           : 1537
+LicenseKey            : NN603-4YHEK-J8J8T-0X806-1M9QN
+MemoryTotalMB         : 65406.0390625
+MemoryTotalGB         : 63.87308502197265625
+MemoryUsageMB         : 2120
+MemoryUsageGB         : 2.0703125
+ProcessorType         : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+HyperthreadingActive  : True
+TimeZone              : UTC
+Version               : 6.7.0
+Build                 : 16713306
+Parent                : host
+VMSwapfileDatastore   :
+StorageInfo           : HostStorageSystem-storageSystem-13180
+NetworkInfo           : ENWESX002:westcoast.co.uk
+DiagnosticPartition   :
+FirewallDefaultPolicy : VMHostFirewallDefaultPolicy:HostSystem-host-13180
+ApiVersion            : 6.7.3
+MaxEVCMode            : intel-broadwell
+Name                  : enwesx002.westcoast.co.uk
+CustomFields          : {[AutoDeploy.MachineIdentity, ]}
+ExtensionData         : VMware.Vim.HostSystem
+Id                    : HostSystem-host-13180
+Uid                   : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VMHost=HostSystem-host-13180/
+DatastoreIdList       : {Datastore-datastore-13181, Datastore-datastore-13183}
+
+Let's process all the auto-startup VMs on the host
+
+PowerState              : PoweredOn
+Version                 : v14
+HardwareVersion         : vmx-14
+Notes                   :
+Guest                   : ENXPROXY01N02:
+NumCpu                  : 6
+CoresPerSocket          : 1
+MemoryMB                : 10240
+MemoryGB                : 10
+VMHostId                : HostSystem-host-13180
+VMHost                  : enwesx002.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v114
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-13179
+ResourcePool            : Resources
+PersistentId            : 50283fa0-ba22-fea1-3ae4-694bc19c984a
+UsedSpaceGB             : 110.08875370025634765625
+ProvisionedSpaceGB      : 110.08875428885221481323242188
+DatastoreIdList         : {Datastore-datastore-13183}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/6000 MemShares:Normal/102400
+GuestId                 : windows8Server64Guest
+CreateDate              : 30/05/2020 08:00:32
+Name                    : ENXPROXY01N02
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-13129
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-13129/
+
+Waiting for ENXPROXY01N02 to power up and please wait ... [try: 2]
+Waiting for ENXPROXY01N02 to power up and please wait ... [try: 2]
+Waiting for ENXPROXY01N02 to power up and please wait ... [try: 2]
+Waiting for ENXPROXY01N02 to power up and please wait ... [try: 2]
+ENXPROXY01N02 has now got VMware tools running, let's give it 30 seconds before continuing
+
+PowerState              : PoweredOn
+Version                 : v14
+HardwareVersion         : vmx-14
+Notes                   :
+Guest                   : ENWDC02:
+NumCpu                  : 4
+CoresPerSocket          : 1
+MemoryMB                : 8192
+MemoryGB                : 8
+VMHostId                : HostSystem-host-13180
+VMHost                  : enwesx002.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v114
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-13179
+ResourcePool            : Resources
+PersistentId            : 5028dbd7-932c-ffd8-2b79-b19bde4cf1d3
+UsedSpaceGB             : 108.08501228131353855133056641
+ProvisionedSpaceGB      : 108.08501286432147026062011719
+DatastoreIdList         : {Datastore-datastore-13183}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/4000 MemShares:Normal/81920
+GuestId                 : windows8Server64Guest
+CreateDate              : 30/05/2020 07:56:29
+Name                    : ENWDC02
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-13128
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-13128/
+
+Waiting for ENWDC02 to power up and please wait ... [try: 2]
+Waiting for ENWDC02 to power up and please wait ... [try: 2]
+Waiting for ENWDC02 to power up and please wait ... [try: 2]
+Waiting for ENWDC02 to power up and please wait ... [try: 2]
+Waiting for ENWDC02 to power up and please wait ... [try: 2]
+Waiting for ENWDC02 to power up and please wait ... [try: 2]
+Waiting for ENWDC02 to power up and please wait ... [try: 2]
+Waiting for ENWDC02 to power up and please wait ... [try: 2]
+Waiting for ENWDC02 to power up and please wait ... [try: 2]
+Waiting for ENWDC02 to power up and please wait ... [try: 2]
+Waiting for ENWDC02 to power up and please wait ... [try: 2]
+ENWDC02 has now got VMware tools running, let's give it 30 seconds before continuing
+
+PowerState              : PoweredOn
+Version                 : v14
+HardwareVersion         : vmx-14
+Notes                   :
+Guest                   : ENWPROXY01N02:
+NumCpu                  : 6
+CoresPerSocket          : 1
+MemoryMB                : 14336
+MemoryGB                : 14
+VMHostId                : HostSystem-host-13180
+VMHost                  : enwesx002.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v114
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-13179
+ResourcePool            : Resources
+PersistentId            : 5028c87e-5c97-383b-7d49-c48bebfe4d34
+UsedSpaceGB             : 114.08871453907340764999389648
+ProvisionedSpaceGB      : 114.08871512766927480697631836
+DatastoreIdList         : {Datastore-datastore-13183}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/6000 MemShares:Normal/143360
+GuestId                 : windows8Server64Guest
+CreateDate              : 30/05/2020 09:34:39
+Name                    : ENWPROXY01N02
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-13130
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-13130/
+
+Waiting for ENWPROXY01N02 to power up and please wait ... [try: 2]
+Waiting for ENWPROXY01N02 to power up and please wait ... [try: 2]
+Waiting for ENWPROXY01N02 to power up and please wait ... [try: 2]
+Waiting for ENWPROXY01N02 to power up and please wait ... [try: 2]
+Waiting for ENWPROXY01N02 to power up and please wait ... [try: 2]
+ENWPROXY01N02 has now got VMware tools running, let's give it 30 seconds before continuing
+
+PowerState              : PoweredOn
+Version                 : v11
+HardwareVersion         : vmx-11
+Notes                   : Veeam Backup:  Job name: [VMWare Backup - No Tools], Time: [30/07/2020 18:13:42], Backup host: [XMABACKUPNG02], Backup folder: [[XMABACKUPNG02.xma.co.uk]
+                          D:\Veeam\Backups\VMWare Backup - No Tools_1]
+Guest                   : ENWMIVMCD02:
+NumCpu                  : 4
+CoresPerSocket          : 1
+MemoryMB                : 2048
+MemoryGB                : 2
+VMHostId                : HostSystem-host-13180
+VMHost                  : enwesx002.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v114
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-13179
+ResourcePool            : Resources
+PersistentId            : 52b71cf9-edce-a224-dfc7-3f26b4aaf2d3
+UsedSpaceGB             : 20.583984375
+ProvisionedSpaceGB      : 20.583984897471964359283447266
+DatastoreIdList         : {Datastore-datastore-13183}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/4000 MemShares:Normal/20480
+GuestId                 : other26xLinux64Guest
+CreateDate              : 01/01/1970 00:00:00
+Name                    : ENWMIVMCD02
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-284
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-284/
+
+Waiting for ENWMIVMCD02 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMCD02 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMCD02 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMCD02 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMCD02 to power up and please wait ... [try: 2]
+ENWMIVMCD02 has now got VMware tools running, let's give it 30 seconds before continuing
+
+PowerState              : PoweredOn
+Version                 : v11
+HardwareVersion         : vmx-11
+Notes                   : Veeam Backup:  Job name: [VMWare Backup - No Tools], Time: [27/08/2020 18:18:34], Backup host: [XMABACKUPNG02], Backup folder: [[XMABACKUPNG02.xma.co.uk]
+                          D:\Veeam\Backups\VMWare Backup - No Tools_1]
+Guest                   : ENWMIVMBG01:
+NumCpu                  : 1
+CoresPerSocket          : 1
+MemoryMB                : 1024
+MemoryGB                : 1
+VMHostId                : HostSystem-host-13180
+VMHost                  : enwesx002.westcoast.co.uk
+VApp                    :
+FolderId                : Folder-group-v114
+Folder                  : vm
+ResourcePoolId          : ResourcePool-resgroup-13179
+ResourcePool            : Resources
+PersistentId            : 52047fa8-6fbe-3f6b-a3b7-bbef5b0b29ab
+UsedSpaceGB             : 20.096996022388339042663574219
+ProvisionedSpaceGB      : 20.096996575593948364257812500
+DatastoreIdList         : {Datastore-datastore-13183}
+HARestartPriority       :
+HAIsolationResponse     :
+DrsAutomationLevel      :
+VMSwapfilePolicy        : Inherit
+VMResourceConfiguration : CpuShares:Normal/1000 MemShares:Normal/10240
+GuestId                 : other26xLinux64Guest
+CreateDate              : 01/01/1970 00:00:00
+Name                    : ENWMIVMBG01
+CustomFields            : {[Backup Status, ], [Last Backup, ]}
+ExtensionData           : VMware.Vim.VirtualMachine
+Id                      : VirtualMachine-vm-282
+Uid                     : /VIServer=westcoastltd\wcadmin.mw@bnwvcsa01.westcoast.co.uk:443/VirtualMachine=VirtualMachine-vm-282/
+
+Waiting for ENWMIVMBG01 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMBG01 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMBG01 to power up and please wait ... [try: 2]
+Waiting for ENWMIVMBG01 to power up and please wait ... [try: 2]
+ENWMIVMBG01 has now got VMware tools running, let's give it 30 seconds before continuing
+The host enwesx002.westcoast.co.uk is not compliant for the  Non-Critical Host Patches (Predefined)  Baseline, attempting to remediate this baseline
+Deploying  Non-Critical Host Patches (Predefined)  Baseline
+PS>TerminatingError(Update-Entity): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 28/08/2020 01:55:05	Update-Entity		The operation for the entity "enwesx002.westcoast.co.uk" failed with the following message: "VMware vSphere Update Manager had an unknown error. Check the events and log files for details."	"
+>> TerminatingError(Update-Entity): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 28/08/2020 01:55:05	Update-Entity		The operation for the entity "enwesx002.westcoast.co.uk" failed with the following message: "VMware vSphere Update Manager had an unknown error. Check the events and log files for details."	"
+update-entity : 28/08/2020 01:55:05	Update-Entity		The operation for the entity "enwesx002.westcoast.co.uk" failed with the following message: "VMware vSphere Update Manager had an unknown error.
+Check the events and log files for details."
+At C:\Scripts\VMWare\VMware-HostPatcher\Patch-VMwareHosts.ps1:173 char:62
++ ... Baseline.name | update-entity -entity $currentesxhost -confirm:$false
++                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Update-Entity], ExtendedFault
+    + FullyQualifiedErrorId : Client20_TaskServiceImpl_CheckServerSideTaskUpdates_OperationFailed,VMware.VumAutomation.Commands.RemediateInventory
+
+**********************
+Windows PowerShell transcript end
+End time: 20200828090640
+**********************

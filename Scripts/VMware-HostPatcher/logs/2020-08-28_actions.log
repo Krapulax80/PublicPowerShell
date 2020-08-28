@@ -1,0 +1,122 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20200828100136
+Username: WESTCOASTLTD\wcadmin.fs
+RunAs User: WESTCOASTLTD\wcadmin.fs
+Machine: BNWINFRATS01 (Microsoft Windows NT 6.3.9600.0)
+Host Application: C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe
+Process ID: 5612
+PSVersion: 5.1.14409.1018
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14409.1018
+BuildVersion: 10.0.14409.1018
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is \\tsclient\C\Users\fabrice.semti\OneDrive - Westcoast Limited\Desktop\PublicPowerShell\Scripts\VMware-HostPatcher\logs\2020-08-28_actions.log
+
+Name                           Port  User
+----                           ----  ----
+bnwvcsa01.westcoast.co.uk      443   WESTCOASTLTD\wcadmin.fs
+
+DefaultVIServerMode         : Single
+ProxyPolicy                 : UseSystemProxy
+ParticipateInCEIP           : False
+CEIPDataTransferProxyPolicy : UseSystemProxy
+DisplayDeprecationWarnings  : True
+InvalidCertificateAction    : Ignore
+WebOperationTimeoutSeconds  : 3600
+VMConsoleWindowBrowser      :
+Scope                       : Session
+
+
+DefaultVIServerMode         : Single
+ProxyPolicy                 :
+ParticipateInCEIP           :
+CEIPDataTransferProxyPolicy :
+DisplayDeprecationWarnings  :
+InvalidCertificateAction    :
+WebOperationTimeoutSeconds  :
+VMConsoleWindowBrowser      :
+Scope                       : User
+
+
+DefaultVIServerMode         :
+ProxyPolicy                 :
+ParticipateInCEIP           : False
+CEIPDataTransferProxyPolicy :
+DisplayDeprecationWarnings  :
+InvalidCertificateAction    : Ignore
+WebOperationTimeoutSeconds  : 3600
+VMConsoleWindowBrowser      :
+Scope                       : AllUsers
+
+PS>TerminatingError(Out-File): "Cannot bind argument to parameter 'FilePath' because it is null."
+>> TerminatingError(Patch-VMwareHostsV2.ps1): "Cannot bind argument to parameter 'FilePath' because it is null."
+\\tsclient\C\Users\fabrice.semti\OneDrive - Westcoast Limited\Desktop\PublicPowerShell\Scripts\VMware-HostPatcher\Patch-VMwareHostsV2.ps1 : Cannot bind argument to parameter 'FilePath' because it is
+null.
+    + CategoryInfo          : InvalidData: (:) [Patch-VMwareHostsV2.ps1], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Patch-VMwareHostsV2.ps1
+
+PS C:\Windows\system32> cls
+Transcript started, output file is C:\Scripts\VMWare\VMware-HostPatcher\logs\2020-08-28_actions.log
+
+Name                           Port  User
+----                           ----  ----
+bnwvcsa01.westcoast.co.uk      443   WESTCOASTLTD\wcadmin.fs
+
+DefaultVIServerMode         : Single
+ProxyPolicy                 : UseSystemProxy
+ParticipateInCEIP           : False
+CEIPDataTransferProxyPolicy : UseSystemProxy
+DisplayDeprecationWarnings  : True
+InvalidCertificateAction    : Ignore
+WebOperationTimeoutSeconds  : 3600
+VMConsoleWindowBrowser      :
+Scope                       : Session
+
+
+DefaultVIServerMode         : Single
+ProxyPolicy                 :
+ParticipateInCEIP           :
+CEIPDataTransferProxyPolicy :
+DisplayDeprecationWarnings  :
+InvalidCertificateAction    :
+WebOperationTimeoutSeconds  :
+VMConsoleWindowBrowser      :
+Scope                       : User
+
+
+DefaultVIServerMode         :
+ProxyPolicy                 :
+ParticipateInCEIP           : False
+CEIPDataTransferProxyPolicy :
+DisplayDeprecationWarnings  :
+InvalidCertificateAction    : Ignore
+WebOperationTimeoutSeconds  : 3600
+VMConsoleWindowBrowser      :
+Scope                       : AllUsers
+
+Importing function C:\Scripts\VMWare\VMware-HostPatcher\functions\function1.ps1
+PS C:\Windows\system32> TerminatingError(Out-File): "Cannot bind argument to parameter 'FilePath' because it is null."
+>> TerminatingError(Patch-VMwareHostsV2.ps1): "Cannot bind argument to parameter 'FilePath' because it is null."
+C:\Scripts\VMWare\VMware-HostPatcher\Patch-VMwareHostsV2.ps1 : Cannot bind argument to parameter 'FilePath' because it is null.
+    + CategoryInfo          : InvalidData: (:) [Patch-VMwareHostsV2.ps1], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Patch-VMwareHostsV2.ps1
+
+PS C:\Windows\system32> TerminatingError(Start-Transcript): "Transcription cannot be started."
+>> TerminatingError(Start-Transcript): "Transcription cannot be started."
+Start-Transcript : Transcription cannot be started.
+At C:\Scripts\VMWare\VMware-HostPatcher\Patch-VMwareHostsV2.ps1:49 char:3
++   Start-Transcript $logfile -Force
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Start-Transcript], PSInvalidOperationException
+    + FullyQualifiedErrorId : CannotStartTranscription,Microsoft.PowerShell.Commands.StartTranscriptCommand
+
+PS C:\Windows\system32> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20200828100853
+**********************
