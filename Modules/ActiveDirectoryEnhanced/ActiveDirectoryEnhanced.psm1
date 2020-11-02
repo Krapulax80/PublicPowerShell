@@ -22,17 +22,17 @@ function Get-ADOSReport {
         [pscredential] $credential = (Get-Credential),
 
         [Parameter(Mandatory = $false)]
-        [string] $reportfolder = ([Environment]::GetFolderPath("Desktop"))
+        [string] $reportfolder = ([Environment]::GetFolderPath('Desktop'))
         
     )
     
     begin {
-        $ErrorActionPreference = "Stop"
+        $ErrorActionPreference = 'Stop'
         Import-Module ActiveDirectory
 
-        $DomainController = (Get-ADForest -Identity $domain -Credential $credential |  Select-Object -ExpandProperty RootDomain |  Get-ADDomain |  Select-Object -Property PDCEmulator).PDCEmulator
-        $DomainUnderscore = $domain -replace "\.", "_"
-        $csv = $reportfolder + "\" + $DomainUnderscore + "_ADOSReport.csv"
+        $DomainController = (Get-ADForest -Identity $domain -Credential $credential | Select-Object -ExpandProperty RootDomain | Get-ADDomain | Select-Object -Property PDCEmulator).PDCEmulator
+        $DomainUnderscore = $domain -replace '\.', '_'
+        $csv = $reportfolder + '\' + $DomainUnderscore + '_ADOSReport.csv'
     }
     
     process {
@@ -71,57 +71,60 @@ Function to create a report (visual and .csv) of the inactive users of a domain 
 
 #>
 
-function Get-ADUserInactivityReport {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory = $false)]
-        [string] $domain = $env:USERDNSDOMAIN,
+# function Get-ADUserInactivityReport {
+#     [CmdletBinding()]
+#     param (
+#         [Parameter(Mandatory = $false,ValueFromPipelineByPropertyName,ValueFromPipeline)]
+#         [string] $domain = $env:USERDNSDOMAIN,
 
-        [Parameter(Mandatory = $false)]
-        [pscredential] $credential = (Get-Credential),
+#         [Parameter(Mandatory = $false)]
+#         [pscredential] $credential = (Get-Credential),
 
-        [Parameter(Mandatory=$false)]
-        [string] $reportfolder = ([Environment]::GetFolderPath("Desktop")),
+#         [Parameter(Mandatory = $false)]
+#         [string] $reportfolder = ([Environment]::GetFolderPath('Desktop')),
 
-        [Parameter(Mandatory = $false)]
-        [string] $daysinactive = 90,
+#         [Parameter(Mandatory = $false)]
+#         [int] $daysinactive = 90,
         
-        [Parameter(Mandatory = $false)]
-        [string] $OU
+#         [Parameter(Mandatory = $false)]
+#         [string] $OU
         
-    )
+#     )
             
-    begin {
-        $ErrorActionPreference = "Stop"
-        Import-Module ActiveDirectory
+#     begin {
+#         $ErrorActionPreference = 'Stop'
+#         Import-Module ActiveDirectory
 
-        $DomainController = (Get-ADForest -Identity $domain -Credential $credential |  Select-Object -ExpandProperty RootDomain |  Get-ADDomain |  Select-Object -Property PDCEmulator).PDCEmulator
-        $DomainUnderscore = $domain -replace "\.", "_"
-        $csv = $reportfolder + "\" + $DomainUnderscore + "_ADUserInactivityReport.csv"   
-        $time = (Get-Date).Adddays(- ($DaysInactive))     
-    }
+#     }
     
-    process {
+#     process {
 
-        # Collect inactive users
-        if ($OU){
-            $InactiveUserReport = Get-ADUser -searchbase $OU -Filter { LastLogonTimeStamp -LT $time -and Enabled -EQ $true } -Properties LastLogonTimeStamp -Server $DomainController -Credential $credential
-        } else {
-            $InactiveUserReport = Get-ADUser -Filter { LastLogonTimeStamp -LT $time -and Enabled -EQ $true } -Properties LastLogonTimeStamp -Server $DomainController -Credential $credential
-        }
-        Write-Host -ForegroundColor Black -BackgroundColor Cyan "List of [$domain] domain's inactive users (last logon within the last $daysinactive days):"
-        $InactiveUserReport | Select-Object Name, Enabled, UserPrincipalName, @{ Name = "LogonTimeStamp"; Expression = { [datetime]::FromFileTime($_.lastLogonTimestamp).ToString('yyyy-MM-dd_HH:mm:ss') }}  | sort Name | ft -Autosize
+#         $since = ((Get-Date ).Adddays - $daysinactive)
 
-        # Send inactive users to CSV
-        Write-Host -ForegroundColor Black -BackgroundColor Cyan "[Detailed report saved as $csv]"
-        $InactiveUserReport | Select-Object Name,@{ Name = "LogonTimeStamp"; Expression = { [datetime]::FromFileTime($_.lastLogonTimestamp).ToString('yyyy-MM-dd_HH:mm:ss') } } | Export-Csv $csv -NoTypeInformation -Force
+#         $DomainController = (Get-ADForest -Identity $domain -Credential $credential | Select-Object -ExpandProperty RootDomain | Get-ADDomain | Select-Object -Property PDCEmulator).PDCEmulator
+#         $DomainUnderscore = $domain -replace '\.', '_'
+#         $csv = $reportfolder + '\' + $DomainUnderscore + '_ADUserInactivityReport.csv'               
+
+#         # Collect inactive users
+#         if ($OU) {
+#             $InactiveUserReport = Get-ADUser -SearchBase $OU -Filter { LastLogonTimeStamp -LT $since -and Enabled -EQ $true } -Properties LastLogonTimeStamp -Server $DomainController -Credential $credential
+#         }
+#         else {
+#             $InactiveUserReport = Get-ADUser -Filter { LastLogonTimeStamp -LT $since -and Enabled -EQ $true } -Properties LastLogonTimeStamp -Server $DomainController -Credential $credential
+#         }
+#         Write-Host -ForegroundColor Black -BackgroundColor Cyan "List of [$domain] domain's inactive users (last logon within the last $daysinactive days):"
+#         $InactiveUserReport | Select-Object Name, Enabled, UserPrincipalName, @{ Name = 'LogonTimeStamp'; Expression = { [datetime]::FromFileTime($_.lastLogonTimestamp).ToString('yyyy-MM-dd_HH:mm:ss') } } | Sort-Object Name | Format-Table -AutoSize
+
+#         # Send inactive users to CSV
+#         Write-Host -ForegroundColor Black -BackgroundColor Cyan "[Detailed report saved as $csv]"
+#         $InactiveUserReport | Select-Object Name,@{ Name = 'LogonTimeStamp'; Expression = { [datetime]::FromFileTime($_.lastLogonTimestamp).ToString('yyyy-MM-dd_HH:mm:ss') } } | Export-Csv $csv -NoTypeInformation -Force
         
-    }
+#     }
     
-    end {
-        $InactiveUserReport = $null
-    }
-}
+#     end {
+#         $InactiveUserReport = $null
+#     }
+# }
 
 <#
 Function to create a report (visual and .csv) of the users of the domain, who's password already expired
@@ -134,26 +137,26 @@ Function to create a report (visual and .csv) of the users of the domain, who's 
 
  .EXAMPLES
 
- # Target specific OU
+# Target specific OU
 
  Get-ADUserExpiredPasswordReport -OU "OU=USERS,OU=London,DC=fabrikam,DC=co,DC=uk"
 
  # Target a full domain
 
- Get-ADUserExpiredPasswordReport -domain "contoso.com" 
+Get-ADUserExpiredPasswordReport -domain "contoso.com" 
 
 #>
 function Get-ADUserExpiredPasswordReport {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false,ValueFromPipelineByPropertyName,ValueFromPipeline)]
         [string] $domain = $env:USERDNSDOMAIN,
 
         [Parameter(Mandatory = $false)]
         [pscredential] $credential = (Get-Credential),
 
-        [Parameter(Mandatory=$false)]
-        [string] $reportfolder = ([Environment]::GetFolderPath("Desktop")),
+        [Parameter(Mandatory = $false)]
+        [string] $reportfolder = ([Environment]::GetFolderPath('Desktop')),
         
         [Parameter(Mandatory = $false)]
         [string] $OU
@@ -161,28 +164,31 @@ function Get-ADUserExpiredPasswordReport {
     )
             
     begin {
-        $ErrorActionPreference = "Stop"
+        $ErrorActionPreference = 'Stop'
         Import-Module ActiveDirectory
 
-        $maxPasswordAge = (Get-ADDefaultDomainPasswordPolicy).MaxPasswordAge.Days
-        $settingdate = (Get-Date).AddDays(-$maxPasswordAge)
-        $DomainController = (Get-ADForest -Identity $domain -Credential $credential |  Select-Object -ExpandProperty RootDomain |  Get-ADDomain |  Select-Object -Property PDCEmulator).PDCEmulator
-        $DomainUnderscore = $domain -replace "\.", "_"
-        $csv = $reportfolder + "\" + $DomainUnderscore + "_ADUserExpiredPassword.csv"   
     }
     
     process {
-        if ($OU){
-            $ExpiredPasswordReport = Get-ADUser -searchbase $OU -Filter { Enabled -EQ $True -and PasswordNeverExpires -EQ $False } –Properties * -Server $DomainController -Credential $credential | Where-Object {($_.PasswordLastSet -le $settingdate) } 
-        } else {
-            $ExpiredPasswordReport = Get-ADUser -Filter { Enabled -EQ $True -and PasswordNeverExpires -EQ $False } –Properties * -Server $DomainController -Credential $credential | Where-Object {($_.PasswordLastSet -le $settingdate) } 
+
+        $maxPasswordAge = (Get-ADDefaultDomainPasswordPolicy -Server $domain -Credential $credential).MaxPasswordAge.Days
+        $settingdate = (Get-Date).AddDays(-$maxPasswordAge)
+        $DomainController = (Get-ADForest -Identity $domain -Credential $credential | Select-Object -ExpandProperty RootDomain | Get-ADDomain | Select-Object -Property PDCEmulator).PDCEmulator
+        $DomainUnderscore = $domain -replace '\.', '_'
+        $csv = $reportfolder + '\' + $DomainUnderscore + '_ADUserExpiredPassword.csv'  
+
+        if ($OU) {
+            $ExpiredPasswordReport = Get-ADUser -SearchBase $OU -Filter { Enabled -EQ $True -and PasswordNeverExpires -EQ $False } –Properties * -Server $DomainController -Credential $credential | Where-Object { ($_.PasswordLastSet -le $settingdate) } 
+        }
+        else {
+            $ExpiredPasswordReport = Get-ADUser -Filter { Enabled -EQ $True -and PasswordNeverExpires -EQ $False } –Properties * -Server $DomainController -Credential $credential | Where-Object { ($_.PasswordLastSet -le $settingdate) } 
         }
         Write-Host -ForegroundColor Black -BackgroundColor Cyan "List of [$domain] domain's users with expired password (password last set at least [$maxPasswordAge] days ago):"
-        $ExpiredPasswordReport | Select-Object Name,PasswordLastSet,@{ n = "ExpiryDate"; e = { $_.PasswordLastSet.Adddays($maxPasswordAge) } }  | sort Name | ft -Autosize
+        $ExpiredPasswordReport | Select-Object Name,PasswordLastSet,@{ n = 'ExpiryDate'; e = { $_.PasswordLastSet.Adddays($maxPasswordAge) } } | Sort-Object Name | Format-Table -AutoSize
 
         # Send inactive users to CSV
         Write-Host -ForegroundColor Black -BackgroundColor Cyan "[Detailed report saved as $csv]"
-        $ExpiredPasswordReport | Select-Object Name,PasswordLastSet,@{ n = "ExpiryDate"; e = { $_.PasswordLastSet.Adddays($maxPasswordAge) } }  | Export-Csv $csv -NoTypeInformation -Force
+        $ExpiredPasswordReport | Select-Object Name,PasswordLastSet,@{ n = 'ExpiryDate'; e = { $_.PasswordLastSet.Adddays($maxPasswordAge) } } | Export-Csv $csv -NoTypeInformation -Force
         
     }
     
@@ -198,7 +204,7 @@ Function to quickly collect FSMO roles for the admin (add "-domain" to search ot
 function Get-ADFSMORoles {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $false,ValueFromPipelineByPropertyName,ValueFromPipeline)]
         [string] $domain = $env:USERDNSDOMAIN,
 
         [Parameter(Mandatory = $false)]
@@ -207,18 +213,22 @@ function Get-ADFSMORoles {
     )
     
     begin {
-        $DomainController = (Get-ADForest -Identity $domain -Credential $credential |  Select-Object -ExpandProperty RootDomain |  Get-ADDomain |  Select-Object -Property PDCEmulator).PDCEmulator
+
     }
     
     process {
+
+        $DomainController = (Get-ADForest -Identity $domain -Credential $credential | Select-Object -ExpandProperty RootDomain | Get-ADDomain | Select-Object -Property PDCEmulator).PDCEmulator
+                
         $SchemaMaster = (Get-ADForest -Server $DomainController -Credential $credential  ).SchemaMaster
         $DomainNamingMaster = (Get-ADForest -Server $DomainController -Credential $credential  ).DomainNamingMaster
-        $PDCEmulator =  (Get-ADDomain -Server $DomainController -Credential $credential  ).PDCEmulator
+        $PDCEmulator = (Get-ADDomain -Server $DomainController -Credential $credential  ).PDCEmulator
         $RIDMaster = (Get-ADDomain -Server $DomainController -Credential $credential  ).RIDMaster
         $InfrastructureMaster = (Get-ADDomain -Server $DomainController -Credential $credential  ).InfrastructureMaster
 
         Write-Host # lazy line break
         Write-Host "We have collected the details of $domain :" -ForegroundColor Black -BackgroundColor Cyan
+        Write-Host 
         Write-Host "FOREST:                        $((Get-ADForest -Server $DomainController -Credential $credential).Name)"
         Write-Host "DOMAIN:                        $((Get-ADDomain -Server $DomainController -Credential $credential).Name)"
         Write-Host "Schema Master DC:              $SchemaMaster"
@@ -226,7 +236,7 @@ function Get-ADFSMORoles {
         Write-Host "PDC Emulator DC:               $PDCEmulator"
         Write-Host "RID Master DC:                 $RIDMaster"
         Write-Host "Infrastructure Master DC:      $InfrastructureMaster"
- 
+
     }
     
     end {
